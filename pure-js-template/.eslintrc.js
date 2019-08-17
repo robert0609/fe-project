@@ -5,7 +5,7 @@ module.exports = {
     "es6": true
   },
   "extends": [
-    "dhfe"
+    "dahai"
   ],
   "parserOptions": {
     "parser": "babel-eslint",
