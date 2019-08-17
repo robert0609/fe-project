@@ -8,9 +8,6 @@
 # install dependencies
 npm install
 
-# build for development
-npm run dev
-
 # build for production
 npm run build
 ```
