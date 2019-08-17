@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import { createLocalVue, shallowMount, createWrapper } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import home from '../../../src/pages/home/index';
 
 describe('index_test', function () {
