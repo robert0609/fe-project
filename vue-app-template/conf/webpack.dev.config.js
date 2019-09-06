@@ -41,6 +41,7 @@ let config = {
     path: path.resolve(__dirname, '../dist'),
     filename: 'static/js/[name].[hash:7].js',
     chunkFilename: 'static/js/[id].[chunkhash:7].js',
+    publicPath: '/'
   },
   module: {
     rules: [

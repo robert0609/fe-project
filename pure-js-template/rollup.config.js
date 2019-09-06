@@ -8,7 +8,7 @@ var config = {
   input: 'src/index.js',
   output: {
     file: 'dist/${XXXX}.js',
-    format: 'cjs',
+    format: 'esm',
     sourcemap: true
   },
   plugins: [
@@ -26,9 +26,13 @@ var config = {
   }
 };
 if (process.env.NODE_ENV === 'production') {
-  config.output.file = 'dist/${XXXX}.min.js';
   config.output.sourcemap = false;
-  config.plugins.push(uglify());
+  if (config.output.format === 'esm') {
+    config.output.file = 'dist/${XXXX}.esm.js';
+  } else {
+    config.output.file = 'dist/${XXXX}.min.js';
+    config.plugins.push(uglify());
+  }
 }
 
 module.exports = config;

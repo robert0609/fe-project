@@ -89,7 +89,25 @@ module.exports = {
 						}
 					}
 				]
-			}
+			},
+      {
+				resource: {
+          test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+					include: [
+						__path_src(),
+            __path_test()
+					]
+				},
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 8192,
+							name: 'static/fonts/[name].[hash:7].[ext]'
+						}
+					}
+				]
+      }
 		]
   },
   plugins: [

@@ -38,7 +38,7 @@ let config = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'static/js/[name].[hash:7].js',
-    chunkFilename: 'static/js/[id].[chunkhash:7].js',
+    chunkFilename: 'static/js/[name].[chunkhash:7].js',
     publicPath: '/dist/'
   },
   module: {
@@ -104,7 +104,7 @@ let config = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[chunkhash:7].css',
-      chunkFilename: 'static/css/[id].[chunkhash:7].css',
+      chunkFilename: 'static/css/[name].[chunkhash:7].css',
     }),
     new OptimizeCSSAssetsPlugin({
       cssProcessorOptions: {
@@ -112,7 +112,7 @@ let config = {
       }
     }),
     new HtmlWebpackPlugin({
-      title: '大海智慧教育系统',
+      title: '${XXXX}',
       filename: path.resolve(__dirname, '../dist/index.html'),
       template: 'conf/index.html',
       favicon: path.resolve(__dirname, '../favicon.ico'),

@@ -53,6 +53,6 @@ module.exports = function (config) {
 		// how many browser should be started simultaneous
     concurrency: Infinity,
     // Fail on failing test suite
-    failOnFailingTestSuite: false
+    failOnFailingTestSuite: true
 	})
 }
