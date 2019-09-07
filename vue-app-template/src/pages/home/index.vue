@@ -7,7 +7,7 @@
       to list
     </router-link>
     <div>
-      <img src="./static/logo.png">
+      <img src="../../assets/img/logo.png">
     </div>
   </div>
 </template>

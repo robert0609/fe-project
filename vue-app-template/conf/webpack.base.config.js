@@ -9,11 +9,30 @@ function __path_test() {
   return path.resolve(__dirname, '../test/unit');
 }
 
+function __path_modules(dir) {
+  return path.join(__dirname, '..', dir)
+}
+
+function __module_js_includes() {
+	if (process.env.NODE_ENV === 'production') {
+    return [
+      __path_src(),
+      __path_test()
+    ];
+  } else {
+    return [
+      __path_src(),
+      __path_test()
+    ];
+  }
+}
+
 module.exports = {
 	devtool: 'source-map',
 	resolve: {
 		extensions: ['.js', '.vue', '.json'],
 		alias: {
+			'@': __path_src(),
 			'vue$': 'vue/dist/vue.esm.js'
 		}
 	},
@@ -44,16 +63,18 @@ module.exports = {
 				],
 				use: [
 					{
-						loader: 'vue-loader'
+						loader: 'vue-loader',
+						options: {
+							transformAssetUrls: {
+								'~': __path_src()
+							}
+						}
 					}
 				]
 			},
 			{
 				test: /\.js$/,
-				include: [
-					__path_src(),
-          __path_test()
-				],
+				include: __module_js_includes(),
 				use: [
 					{
 						loader: 'babel-loader'

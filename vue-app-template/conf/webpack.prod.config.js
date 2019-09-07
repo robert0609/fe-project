@@ -16,7 +16,12 @@ function __vueCssLoaders(preProcessorName) {
     'postcss-loader'
   ];
   if (preProcessorName === 'scss') {
-    loaders.push('sass-loader');
+    loaders.push({
+      loader: 'sass-loader',
+      options: {
+        data: '@import "@/assets/style/variables.scss";'
+      }
+    });
   } else if (preProcessorName === 'sass') {
     loaders.push({
       loader: 'sass-loader',
@@ -39,7 +44,7 @@ let config = {
     path: path.resolve(__dirname, '../dist'),
     filename: 'static/js/[name].[hash:7].js',
     chunkFilename: 'static/js/[name].[chunkhash:7].js',
-    publicPath: '/dist/'
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -85,13 +90,15 @@ let config = {
     runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
-        common: {
+        vendors: {
+          name: 'vendors',
           priority: -10,
-          test: /node_modules\/(.*)\.js/,
+          test: /[\\/]node_modules[\\/]/,
           chunks: 'all'
         },
         styles: {
           name: 'styles',
+          priority: 20,
           test: /\.(scss|sass|less|css)$/,
           chunks: 'all',
           minChunks: 1,

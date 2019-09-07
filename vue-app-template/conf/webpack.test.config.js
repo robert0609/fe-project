@@ -17,7 +17,12 @@ function __vueCssLoaders(preProcessorName) {
     'postcss-loader'
   ];
   if (preProcessorName === 'scss') {
-    loaders.push('sass-loader');
+    loaders.push({
+      loader: 'sass-loader',
+      options: {
+        data: '@import "@/assets/style/variables.scss";'
+      }
+    });
   } else if (preProcessorName === 'sass') {
     loaders.push({
       loader: 'sass-loader',
@@ -37,6 +42,7 @@ var testConfig = merge(baseConfig, {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
+      '@': __path_src(),
       'vue$': 'vue/dist/vue.esm.js'
     }
   },

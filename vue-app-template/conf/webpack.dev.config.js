@@ -15,7 +15,12 @@ function __vueCssLoaders(preProcessorName) {
     'postcss-loader'
   ];
   if (preProcessorName === 'scss') {
-    loaders.push('sass-loader');
+    loaders.push({
+      loader: 'sass-loader',
+      options: {
+        data: '@import "@/assets/style/variables.scss";'
+      }
+    });
   } else if (preProcessorName === 'sass') {
     loaders.push({
       loader: 'sass-loader',
@@ -43,13 +48,17 @@ let config = {
     chunkFilename: 'static/js/[id].[chunkhash:7].js',
     publicPath: '/'
   },
+	resolve: {
+		alias: {
+		}
+	},
   module: {
     rules: [
 			{
 				resource: {
 					test: /\.css$/,
 					include: [
-						__path_src()
+            __path_src()
 					]
 				},
 				use: __vueCssLoaders()
