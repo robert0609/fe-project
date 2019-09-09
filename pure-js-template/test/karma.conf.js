@@ -74,6 +74,8 @@ module.exports = function (config) {
 		singleRun: true,
 		// Concurrency level
 		// how many browser should be started simultaneous
-		concurrency: Infinity
+		concurrency: Infinity,
+    // Fail on failing test suite
+    failOnFailingTestSuite: true
 	})
 }
