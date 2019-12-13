@@ -2,7 +2,7 @@ module.exports = {
   "root": true,
   "extends": [
     "plugin:vue/strongly-recommended",
-    "dahai"
+    "@xes/dahai"
   ],
   "parserOptions": {
     "parser": "babel-eslint"
