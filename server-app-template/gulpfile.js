@@ -5,7 +5,8 @@ var merge = require('merge2');
 var sourcemaps = require("gulp-sourcemaps");
 var eslint = require('gulp-eslint');
 var path = require('path');
-var clearModule = require('clear-module');
+var { fork } = require('child_process');
+var process = require('process');
 
 function clean() {
   return del([
@@ -23,33 +24,65 @@ function compile() {
     .pipe(gulp.dest('./dist'));
 }
 
+// 应用进程
+var appProcess = null;
+
+/**
+ * 运行应用进程
+ */
 function run(done) {
-  require('./dist/index');
-  done();
+  if (appProcess) {
+    terminate(() => {
+      run(done);
+    });
+  } else {
+    appProcess = fork(path.resolve(__dirname, './dist/index.js'));
+    appProcess.on('exit', () => {
+      appProcess = null;
+    });
+    done();
+  }
 }
 
-// function unloadModule(done) {
-//   const modulePath = path.resolve(__dirname, './dist');
-//   const regex = new RegExp(`${modulePath}`);
-//   clearModule.match(regex);
-//   done();
-// }
+/**
+ * 终止应用进程
+ */
+function terminate(done) {
+  if (appProcess) {
+    appProcess.on('exit', () => {
+      done();
+    });
+    appProcess.kill('SIGINT');
+  } else {
+    done();
+  }
+}
 
-const debugTask = gulp.series(
-  lint,
-  clean,
-  compile,
-  run
-);
+/**
+ * 监听gulp进程是否中断
+ */
+process.on('SIGINT', () => {
+  terminate(() => {
+    if (watcher) {
+      watcher.close();
+      watcher = null;
+    }
+    process.exit(0);
+  });
+});
 
-// function watch() {
-//   gulp.watch('./src/**/*.ts', gulp.series(
-//     clean,
-//     compile,
-//     unloadModule,
-//     run
-//   ));
-// }
+var watcher = null;
+
+function watch(done) {
+  watcher = gulp.watch('./src/**/*.ts', gulp.series(
+    terminate,
+    lint,
+    clean,
+    compile,
+    run
+  ));
+  done();
+}
 
 function lint() {
   return gulp.src(['./src/**/*.ts'])
@@ -58,9 +91,19 @@ function lint() {
     .pipe(eslint.failAfterError());
 }
 
-exports.default = gulp.series(lint, clean, compile);
+exports.default = gulp.series(
+  lint,
+  clean,
+  compile
+);
 
-exports.debug = gulp.series(debugTask);
+exports.debug = gulp.series(
+  lint,
+  clean,
+  compile,
+  run,
+  watch
+);
 
 exports.lint = lint;
 
