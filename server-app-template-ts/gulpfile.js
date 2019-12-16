@@ -86,9 +86,12 @@ function watch(done) {
 
 function lint() {
   return gulp.src(['./src/**/*.ts'])
-    .pipe(eslint())
+    .pipe(eslint({
+      fix: true
+    }))
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+    .pipe(eslint.failAfterError())
+    .pipe(gulp.dest('./src/'));
 }
 
 exports.default = gulp.series(
