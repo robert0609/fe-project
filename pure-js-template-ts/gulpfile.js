@@ -11,7 +11,7 @@ function clean() {
 }
 
 function lint() {
-  return gulp.src(['./src/**/*.js'])
+  return gulp.src(['./src/**/*.ts'])
     .pipe(eslint({
       fix: true
     }))
@@ -20,12 +20,12 @@ function lint() {
     .pipe(gulp.dest('./src/'));
 }
 
-function bundle() {
+function compile() {
   return rollup.rollup(rollupConfig).then(bundler => {
     return bundler.write(rollupConfig.output);
   })
 }
 
-exports.default = gulp.series(lint, clean, bundle);
+exports.default = gulp.series(lint, clean, compile);
 
 exports.lint = lint;

@@ -1,6 +1,6 @@
-var resolve = require('rollup-plugin-node-resolve');
+var resolve = require('@rollup/plugin-node-resolve');
 var commonjs = require('rollup-plugin-commonjs');
-var babel = require("rollup-plugin-babel");
+var typescript = require('rollup-plugin-typescript2');
 
 // Karma configuration
 // Generated on Mon Jun 19 2017 14:45:37 GMT+0800 (中国标准时间)
@@ -13,7 +13,7 @@ module.exports = function (config) {
 		frameworks: ['mocha', 'chai'],
 		// list of files / patterns to load in the browser
 		files: [
-			'unit/**/*.test.js'
+			'unit/**/*.test.ts'
 		],
 		// list of files to exclude
 		exclude: [
@@ -21,7 +21,7 @@ module.exports = function (config) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'unit/**/*.test.js': ['rollup']
+			'unit/**/*.test.ts': ['rollup']
     },
 		rollupPreprocessor: {
 			/**
@@ -43,9 +43,13 @@ module.exports = function (config) {
             ]
           }
         }),
-        babel({
-          exclude: 'node_modules/**',
-          runtimeHelpers: true
+        typescript({
+          tsconfigOverride: {
+            compilerOptions: {
+              declaration: false,
+              declarationMap: false
+            }
+          }
         })
       ]
 		},

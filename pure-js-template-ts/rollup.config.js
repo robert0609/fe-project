@@ -1,11 +1,12 @@
-var resolve = require('rollup-plugin-node-resolve');
+var resolve = require('@rollup/plugin-node-resolve');
 var commonjs = require('rollup-plugin-commonjs');
-var babel = require("rollup-plugin-babel");
+var typescript = require('rollup-plugin-typescript2');
 var { uglify } = require("rollup-plugin-uglify");
-var externalDependencies = Object.keys(require('./package.json').dependencies);
+var dependencies = require('./package.json').dependencies;
+var externalDependencies = dependencies ? Object.keys(dependencies) : [];
 
 var config = {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   output: {
     file: 'dist/${XXXX}.js',
     format: 'esm',
@@ -16,9 +17,12 @@ var config = {
     commonjs({
       include: 'node_modules/**'
     }),
-    babel({
-      exclude: 'node_modules/**',
-      runtimeHelpers: true
+    typescript({
+      tsconfigOverride: {
+        compilerOptions: {
+          declarationMap: process.env.NODE_ENV !== 'production'
+        }
+      }
     })
   ],
   external: function (moduleName) {
@@ -27,10 +31,7 @@ var config = {
 };
 if (process.env.NODE_ENV === 'production') {
   config.output.sourcemap = false;
-  if (config.output.format === 'esm') {
-    config.output.file = 'dist/${XXXX}.esm.js';
-  } else {
-    config.output.file = 'dist/${XXXX}.min.js';
+  if (config.output.format !== 'esm') {
     config.plugins.push(uglify());
   }
 }
