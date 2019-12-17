@@ -3,7 +3,6 @@
     "target": "es5",
     "module": "ES2015",
     "outDir": "./dist",
-    // "rootDir": "./src",
     "rootDirs": [
       "./src",
       "./test/unit"

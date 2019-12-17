@@ -8,7 +8,7 @@ var externalDependencies = dependencies ? Object.keys(dependencies) : [];
 var config = {
   input: 'src/index.ts',
   output: {
-    file: 'dist/${XXXX}.js',
+    file: 'dist/index.js',
     format: 'esm',
     sourcemap: true
   },
