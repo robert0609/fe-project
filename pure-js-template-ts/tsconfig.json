@@ -3,10 +3,6 @@
     "target": "es5",
     "module": "ES2015",
     "outDir": "./dist",
-    "rootDirs": [
-      "./src",
-      "./test/unit"
-    ],
     "declaration": true,
     "strict": true,
     "noUnusedLocals": true,
@@ -16,5 +12,9 @@
     "noImplicitThis": true,
     "moduleResolution": "node",
     "esModuleInterop": true
-  }
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./test/unit/**/*.test.ts"
+  ]
 }

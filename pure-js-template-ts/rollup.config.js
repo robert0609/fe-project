@@ -18,6 +18,7 @@ var config = {
       include: 'node_modules/**'
     }),
     typescript({
+      tsconfig: './tsconfig.prod.json',
       tsconfigOverride: {
         compilerOptions: {
           declarationMap: process.env.NODE_ENV !== 'production'
