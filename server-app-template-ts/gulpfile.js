@@ -91,7 +91,7 @@ function lint() {
     }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
-    .pipe(gulp.dest('./src/'));
+    .pipe(gulp.dest('./dist/'));
 }
 
 exports.default = gulp.series(

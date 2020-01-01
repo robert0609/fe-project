@@ -17,7 +17,7 @@ function lint() {
     }))
     .pipe(eslint.format('node_modules/eslint-friendly-formatter'))
     .pipe(eslint.failAfterError())
-    .pipe(gulp.dest('./src/'));
+    .pipe(gulp.dest('./dist/'));
 }
 
 function bundle() {
