@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module": "ES2015",
     "outDir": "./dist",
+    "rootDir": "./src",
     "declaration": true,
     "strict": true,
     "noUnusedLocals": true,
@@ -11,10 +12,10 @@
     "noImplicitReturns": false,
     "noImplicitThis": true,
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "isolatedModules": true
   },
   "include": [
-    "./src/**/*.ts",
-    "./test/unit/**/*.test.ts"
+    "./src/**/*.ts"
   ]
 }

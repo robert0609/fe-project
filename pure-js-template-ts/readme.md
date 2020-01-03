@@ -29,7 +29,7 @@ npm install --save ${XXXX}
 
 ## API Reference
 
-### XXXX API signature
+### API signature
 
 * parameter
 

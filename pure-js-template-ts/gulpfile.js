@@ -1,8 +1,11 @@
+/*
+ * @Author: bluefox
+ * @Date: 2019-12-30 11:50:30
+ * @Description: file content
+ */
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var del = require('del');
-var rollup = require('rollup');
-var rollupConfig = require('./rollup.config');
 
 function clean() {
   return del([
@@ -20,12 +23,16 @@ function lint() {
     .pipe(gulp.dest('./dist/'));
 }
 
-function compile() {
-  return rollup.rollup(rollupConfig).then(bundler => {
-    return bundler.write(rollupConfig.output);
-  })
+function lintTest() {
+  return gulp.src(['./test/unit/**/*.test.ts'])
+    .pipe(eslint({
+      fix: true
+    }))
+    .pipe(eslint.format('node_modules/eslint-friendly-formatter'))
+    .pipe(eslint.failAfterError())
+    .pipe(gulp.dest('./dist/'));
 }
 
-exports.default = gulp.series(lint, clean, compile);
+exports.lint = gulp.series(lint, clean);
 
-exports.lint = lint;
+exports.lintTest = gulp.series(lintTest, clean);

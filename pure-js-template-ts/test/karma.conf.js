@@ -1,5 +1,5 @@
 var resolve = require('@rollup/plugin-node-resolve');
-var commonjs = require('rollup-plugin-commonjs');
+var commonjs = require('@rollup/plugin-commonjs');
 var typescript = require('rollup-plugin-typescript2');
 
 // Karma configuration
@@ -34,7 +34,11 @@ module.exports = function (config) {
 				sourcemap: 'inline', // Sensible for testing.
 			},
       plugins: [
-        resolve(),
+        resolve({
+          extensions: [
+            '.js', '.jsx', '.ts', '.tsx',
+          ]
+        }),
         commonjs({
           include: 'node_modules/**',
           namedExports: {
@@ -44,6 +48,7 @@ module.exports = function (config) {
           }
         }),
         typescript({
+          tsconfig: './tsconfig.test.json',
           tsconfigOverride: {
             compilerOptions: {
               declaration: false,

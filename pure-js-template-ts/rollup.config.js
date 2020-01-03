@@ -1,29 +1,38 @@
 var resolve = require('@rollup/plugin-node-resolve');
-var commonjs = require('rollup-plugin-commonjs');
-var typescript = require('rollup-plugin-typescript2');
-var { uglify } = require("rollup-plugin-uglify");
-var dependencies = require('./package.json').dependencies;
+var commonjs = require('@rollup/plugin-commonjs');
+var babel = require("rollup-plugin-babel");
+var { terser } = require('rollup-plugin-terser');
+var pkg = require('./package.json');
+var dependencies = pkg.dependencies;
 var externalDependencies = dependencies ? Object.keys(dependencies) : [];
+
+var extensions = [
+  '.js', '.jsx', '.ts', '.tsx',
+];
 
 var config = {
   input: 'src/index.ts',
-  output: {
-    file: 'dist/index.js',
-    format: 'esm',
-    sourcemap: true
-  },
+  output: [
+    {
+      file: pkg.main,
+      format: 'umd',
+      sourcemap: true,
+      name: '${XXXX}'
+    },{
+      file: pkg.module,
+      format: 'esm',
+      sourcemap: true
+    }
+  ],
   plugins: [
-    resolve(),
+    resolve({ extensions }),
     commonjs({
       include: 'node_modules/**'
     }),
-    typescript({
-      tsconfig: './tsconfig.prod.json',
-      tsconfigOverride: {
-        compilerOptions: {
-          declarationMap: process.env.NODE_ENV !== 'production'
-        }
-      }
+    babel({
+      extensions,
+      exclude: 'node_modules/**',
+      runtimeHelpers: true
     })
   ],
   external: function (moduleName) {
@@ -31,10 +40,10 @@ var config = {
   }
 };
 if (process.env.NODE_ENV === 'production') {
-  config.output.sourcemap = false;
-  if (config.output.format !== 'esm') {
-    config.plugins.push(uglify());
-  }
+  config.output.forEach(c => {
+    c.sourcemap = false;
+  });
+  config.plugins.push(terser());
 }
 
 module.exports = config;
