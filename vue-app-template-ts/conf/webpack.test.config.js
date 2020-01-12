@@ -40,7 +40,7 @@ var testConfig = merge(baseConfig, {
   mode: 'development',
 	devtool: 'inline-source-map',
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.ts', '.js', '.vue', '.json'],
     alias: {
       '@': __path_src(),
       'vue$': 'vue/dist/vue.esm.js'

@@ -10,9 +10,7 @@ if (process.env.NODE_ENV === 'production') {
     router.push({
       name: 'error',
       params: {
-        err,
-        info,
-        vm
+        err: err.message
       }
     });
   };

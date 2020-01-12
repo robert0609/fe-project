@@ -6,8 +6,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'Error',
   data() {
     return {
@@ -15,12 +17,12 @@ export default {
     };
   },
   mounted() {
-    let error = this.$route.params;
-    this.message = error.err.message;
+    const error = this.$route.params;
+    this.message = error.err;
     // let vm = error.vm;
     // let url = vm.$route.fullPath;
   }
-};
+});
 </script>
 
 <style>

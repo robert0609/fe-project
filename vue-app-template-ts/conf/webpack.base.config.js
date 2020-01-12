@@ -30,7 +30,7 @@ function __module_js_includes() {
 module.exports = {
 	devtool: 'source-map',
 	resolve: {
-		extensions: ['.js', '.vue', '.json'],
+		extensions: ['.ts', '.js', '.vue', '.json'],
 		alias: {
 			'@': __path_src(),
 			'vue$': 'vue/dist/vue.esm.js'
@@ -40,7 +40,7 @@ module.exports = {
 		rules: [
 			{
 				enforce: 'pre',
-				test: /\.(js|html|vue)$/,
+				test: /\.(ts|js|html|vue)$/,
 				include: [
 					__path_src()
 				],
@@ -50,6 +50,7 @@ module.exports = {
 						options: {
               formatter: require('eslint-friendly-formatter'),
               fix: true,
+              extensions: ['.ts', '.js', '.html', '.vue'],
               failOnError: true
 						}
 					}
@@ -78,6 +79,19 @@ module.exports = {
 				use: [
 					{
 						loader: 'babel-loader'
+					}
+				]
+			},
+			{
+				test: /\.ts$/,
+				include: __module_js_includes(),
+				use: [
+					{
+						loader: 'babel-loader'
+					},
+					{
+            loader: 'ts-loader',
+            options: { appendTsSuffixTo: [/\.vue$/] }
 					}
 				]
 			},

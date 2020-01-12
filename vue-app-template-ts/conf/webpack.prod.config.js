@@ -38,7 +38,7 @@ function __vueCssLoaders(preProcessorName) {
 let config = {
   mode: 'production',
   entry: {
-    index: path.resolve(__dirname, '../src/index.js')
+    index: path.resolve(__dirname, '../src/index.ts')
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
