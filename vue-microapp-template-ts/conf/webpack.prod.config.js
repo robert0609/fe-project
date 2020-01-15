@@ -44,20 +44,6 @@ let config = {
 		library: '${XXXX}',
 		libraryTarget: 'umd'
   },
-	externals: [{
-    'vue': {
-      root: 'Vue',
-      commonjs: 'vue',
-      commonjs2: 'vue',
-      amd: 'vue'
-    }
-  },
-  nodeExternals({
-    whitelist: ['vue'],
-    importType: function(moduleName) {
-      return 'umd ' + moduleName;
-    }
-  })],
   module: {
     rules: [
 			{
