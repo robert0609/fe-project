@@ -12,15 +12,20 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+
+@Component({
   name: 'Home',
   data() {
     return {
       message: 'Hello world!'
     };
   }
-};
+})
+export default class Home extends Vue {
+}
 </script>
 
 <style>

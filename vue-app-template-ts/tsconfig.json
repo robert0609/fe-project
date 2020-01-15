@@ -3,7 +3,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": ".",
     "declaration": false,
     "sourceMap": true,
     "strict": true,
@@ -30,7 +30,7 @@
     ],
     "typeRoots": [
       "./types",
-      "./node_modules/@types/node"
+      "./node_modules/@types"
     ]
   },
   "include": [

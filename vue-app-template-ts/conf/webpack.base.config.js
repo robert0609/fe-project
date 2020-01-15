@@ -38,6 +38,11 @@ module.exports = {
 	},
 	module: {
 		rules: [
+      {
+        parser: {
+          system: false
+        }
+      },
 			{
 				enforce: 'pre',
 				test: /\.(ts|js|html|vue)$/,
@@ -91,7 +96,11 @@ module.exports = {
 					},
 					{
             loader: 'ts-loader',
-            options: { appendTsSuffixTo: [/\.vue$/] }
+            options: {
+              appendTsSuffixTo: [/\.vue$/],
+              configFile: __path_modules(process.env.BABEL_ENV === 'test' ? 'test/tsconfig.json' : 'tsconfig.json'),
+              allowTsInNodeModules: true
+            }
 					}
 				]
 			},

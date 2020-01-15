@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import home from '../../../src/pages/home/index';
+import home from '../../../src/pages/home/index.vue';
 
 describe('index_test', function () {
   before(function () {
