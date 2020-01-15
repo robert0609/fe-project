@@ -42,7 +42,8 @@ let config = {
     filename: '${XXXX}.min.js',
     publicPath: '',
 		library: '${XXXX}',
-		libraryTarget: 'umd'
+		libraryTarget: 'umd',
+    jsonpFunction: 'webpackJsonp_${XXXX}'
   },
   module: {
     rules: [
