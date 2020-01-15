@@ -48,7 +48,7 @@ module.exports = function (config) {
           }
         }),
         typescript({
-          tsconfig: './tsconfig.test.json',
+          tsconfig: './test/tsconfig.json',
           tsconfigOverride: {
             compilerOptions: {
               declaration: false,

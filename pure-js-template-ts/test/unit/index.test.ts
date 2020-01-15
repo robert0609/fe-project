@@ -1,7 +1,5 @@
 import main from '../../src/index';
 
-const expect = chai.expect;
-
 describe('main_test', function () {
   before(function () {
     // 在本区块的所有测试用例之前执行

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ES2015",
+    "module": "ESNext",
     "outDir": "./dist",
     "rootDir": "./src",
     "declaration": true,
@@ -13,9 +13,22 @@
     "noImplicitThis": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ]
   },
   "include": [
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./types/**/*.d.ts"
   ]
 }

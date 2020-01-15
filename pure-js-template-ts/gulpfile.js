@@ -1,8 +1,3 @@
-/*
- * @Author: bluefox
- * @Date: 2019-12-30 11:50:30
- * @Description: file content
- */
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var del = require('del');

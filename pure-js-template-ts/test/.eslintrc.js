@@ -1,6 +1,6 @@
 module.exports = {
   "parserOptions": {
-    "project": "./tsconfig.test.json",
+    "project": "./test/tsconfig.json",
     "tsconfigRootDir": "./"
   },
   "env": {
