@@ -38,6 +38,11 @@ module.exports = {
 	},
 	module: {
 		rules: [
+      {
+        parser: {
+          system: false
+        }
+      },
 			{
 				enforce: 'pre',
 				test: /\.(js|html|vue)$/,
