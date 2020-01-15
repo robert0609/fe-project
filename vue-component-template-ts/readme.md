@@ -1,6 +1,6 @@
-# vue-component-ts
+# ${XXXX}
 
-> vue app demo with typescript
+> ${XXXX}
 
 ## Build Setup
 
@@ -20,11 +20,3 @@ npm run lint
 # run unit test
 npm run karma
 ```
-
-## mode
-
-* compile dev
-* compile prod
-* compile declaration
-* lint code
-* unit test

@@ -1,8 +1,3 @@
-/*
- * @Author: bluefox
- * @Date: 2020-01-04 14:14:32
- * @Description: eslint root config
- */
 module.exports = {
   "root": true,
   "extends": [

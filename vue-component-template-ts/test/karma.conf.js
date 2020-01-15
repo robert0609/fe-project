@@ -1,8 +1,3 @@
-/*
- * @Author: bluefox
- * @Date: 2020-01-04 14:14:32
- * @Description: karma config
- */
 var testConfig = require('../conf/webpack.test.config');
 
 // Karma configuration

@@ -1,16 +1,16 @@
 {
-  "name": "vue-component-ts",
+  "name": "${XXXX}",
   "version": "0.1.1",
-  "description": "vue component demo with typescript",
-  "main": "dist/customPlugin.min.js",
-  "types": "dist/src/index.d.ts",
+  "description": "${XXXX}",
+  "main": "dist/${XXXX}.min.js",
+  "types": "dist/${XXXX}.d.ts",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node build/dev.js",
     "build": "cross-env NODE_ENV=production node build/prod.js",
     "lint": "eslint --ext .ts,.js,.html,.vue --fix --format node_modules/eslint-friendly-formatter src test/unit",
     "karma": "cross-env BABEL_ENV=test karma start ./test/karma.conf.js"
   },
-  "author": "bluefox",
+  "author": "${XXXX}",
   "dependencies": {
     "@babel/runtime-corejs3": "^7.5.5",
     "vue": "^2.6.10",
