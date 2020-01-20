@@ -1,23 +1,18 @@
 {
-  "name": "vue-runtime",
+  "name": "${XXXX}",
   "version": "0.1.1",
-  "description": "vue runtime",
-  "main": "dist/vue_runtime.min.js",
-  "types": "dist/vue_runtime.d.ts",
+  "description": "${XXXX}",
+  "main": "dist/${XXXX}.min.js",
+  "types": "dist/${XXXX}.d.ts",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node build/dev.js",
     "build": "cross-env NODE_ENV=production node build/prod.js",
     "lint": "eslint --ext .ts,.js,.html,.vue --fix --format node_modules/eslint-friendly-formatter src test/unit",
     "karma": "cross-env BABEL_ENV=test karma start ./test/karma.conf.js"
   },
-  "author": "yx",
+  "author": "${XXXX}",
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.5.5",
-    "element-ui": "^2.13.0",
-    "vue": "^2.6.10",
-    "vue-class-component": "^7.1.0",
-    "vue-router": "^3.1.5",
-    "vuex": "^3.1.2"
+    "@babel/runtime-corejs3": "^7.5.5"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

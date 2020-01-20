@@ -8,10 +8,6 @@ function __path_src() {
 	return path.resolve(__dirname, '../src');
 }
 
-function __path_modules(dir) {
-  return path.join(__dirname, '..', dir)
-}
-
 function __vueCssLoaders(preProcessorName) {
   let loaders = [
     'vue-style-loader',
@@ -59,8 +55,7 @@ let config = {
 				resource: {
 					test: /\.css$/,
 					include: [
-            __path_src(),
-            __path_modules('node_modules/element-ui')
+            __path_src()
 					]
 				},
 				use: __vueCssLoaders()

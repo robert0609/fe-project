@@ -129,8 +129,7 @@ module.exports = {
           test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
 					include: [
 						__path_src(),
-            __path_test(),
-            __path_modules('node_modules/element-ui')
+            __path_test()
 					]
 				},
 				use: [

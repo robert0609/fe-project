@@ -3,15 +3,10 @@ var baseConfig = require('./webpack.base.config');
 var merge = require('webpack-merge');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-var nodeExternals = require('webpack-node-externals');
 var DeclarationBundlerPlugin = require('declaration-bundler-webpack4-plugin');
 
 function __path_src() {
 	return path.resolve(__dirname, '../src');
-}
-
-function __path_modules(dir) {
-  return path.join(__dirname, '..', dir)
 }
 
 function __vueCssLoaders(preProcessorName) {
@@ -43,10 +38,10 @@ let config = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'vue_runtime.min.js',
-    publicPath: 'http://localhost:8090/runtime/',
+    filename: '${XXXX}.min.js',
+    publicPath: '${XXXX}',
 		libraryTarget: 'system',
-    jsonpFunction: 'webpackJsonp_vue_runtime'
+    jsonpFunction: 'webpackJsonp_${XXXX}'
   },
   module: {
     rules: [
@@ -54,8 +49,7 @@ let config = {
 				resource: {
 					test: /\.css$/,
 					include: [
-            __path_src(),
-            __path_modules('node_modules/element-ui')
+            __path_src()
 					]
 				},
 				use: __vueCssLoaders()
@@ -93,7 +87,7 @@ let config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'vue_runtime.min.css'
+      filename: '${XXXX}.min.css'
     }),
     new OptimizeCSSAssetsPlugin({
       cssProcessorOptions: {
@@ -101,7 +95,7 @@ let config = {
       }
     }),
     new DeclarationBundlerPlugin({
-      out: '../dist/vue_runtime.d.ts'
+      out: '../dist/${XXXX}.d.ts'
     })
   ]
 };
