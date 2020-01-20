@@ -1,0 +1,8 @@
+{
+  "vue": "http://localhost:8090/runtime/vue_runtime.js!vueExports",
+  "vuex": "http://localhost:8090/runtime/vue_runtime.js!vuexExports",
+  "vue-router": "http://localhost:8090/runtime/vue_runtime.js!vueRouterExports",
+  "vue-class-component": "http://localhost:8090/runtime/vue_runtime.js!vueClassComponentExports",
+  "element-ui": "http://localhost:8090/runtime/vue_runtime.js!elementUIExports",
+  "@xes/dh-boston-launcher": "http://localhost:8090/runtime/boston_runtime.js"
+}

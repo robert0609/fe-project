@@ -46,8 +46,7 @@ let config = {
   },
 	resolve: {
 		alias: {
-			'@': __path_src(),
-			'vue$': 'vue/dist/vue.esm.js'
+			'@': __path_src()
 		}
 	},
   module: {

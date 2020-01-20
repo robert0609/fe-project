@@ -3,8 +3,11 @@ var baseConfig = require('./webpack.base.config');
 var merge = require('webpack-merge');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-var nodeExternals = require('webpack-node-externals');
 var DeclarationBundlerPlugin = require('declaration-bundler-webpack4-plugin');
+var BostonPlugin = require('@xes/dh-boston-webpack-plugin');
+var externalDependencies = require('../dependenciesManifest.json');
+var manifest = {...externalDependencies};
+delete manifest['@xes/dh-boston-launcher'];
 
 function __path_src() {
 	return path.resolve(__dirname, '../src');
@@ -31,6 +34,14 @@ function __vueCssLoaders(preProcessorName) {
   return loaders;
 }
 
+function __externalConfig() {
+  const c = {};
+  Object.keys(externalDependencies).forEach(name => {
+    c[name] = name;
+  });
+  return c;
+}
+
 let config = {
   mode: 'production',
 	devtool: false,
@@ -42,9 +53,10 @@ let config = {
     filename: '${XXXX}.min.js',
     publicPath: '',
 		library: '${XXXX}',
-		libraryTarget: 'umd',
+		libraryTarget: 'commonjs2',
     jsonpFunction: 'webpackJsonp_${XXXX}'
   },
+	externals: [__externalConfig()],
   module: {
     rules: [
 			{
@@ -110,6 +122,9 @@ let config = {
     }),
     new DeclarationBundlerPlugin({
       out: '../dist/${XXXX}.d.ts'
+    }),
+    new BostonPlugin({
+      manifest: manifest
     })
   ]
 };

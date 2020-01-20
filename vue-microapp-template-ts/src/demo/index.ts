@@ -1,12 +1,4 @@
-import Vue from 'vue';
-import app from './app.vue';
-import customPlugin from '../index';
+import { applicationContext } from '@xes/dh-boston-launcher';
+import CustomMicroApp from '../index';
 
-Vue.use(customPlugin);
-
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  template: '<app/>',
-  components: { app }
-});
+new CustomMicroApp().install(applicationContext);
