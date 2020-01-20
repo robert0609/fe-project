@@ -6,7 +6,7 @@ import app from './app.vue';
 Vue.config.productionTip = false;
 /* eslint-disable no-undef */
 if (process.env.NODE_ENV === 'production') {
-  Vue.config.errorHandler = function (err, vm, info) {
+  Vue.config.errorHandler = function (err) {
     router.push({
       name: 'error',
       params: {
@@ -21,6 +21,7 @@ new Vue({
   el: '#app',
   router,
   store,
-  template: '<app/>',
-  components: { app }
+  render(h) {
+    return h(app);
+  }
 });

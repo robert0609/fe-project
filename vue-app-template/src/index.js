@@ -23,6 +23,7 @@ new Vue({
   el: '#app',
   router,
   store,
-  template: '<app/>',
-  components: { app }
+  render(h) {
+    return h(app);
+  }
 });
