@@ -52,7 +52,6 @@ let config = {
     path: path.resolve(__dirname, '../dist'),
     filename: '${XXXX}.min.js',
     publicPath: '',
-		library: '${XXXX}',
 		libraryTarget: 'commonjs2',
     jsonpFunction: 'webpackJsonp_${XXXX}'
   },
@@ -98,18 +97,6 @@ let config = {
     ]
   },
   optimization: {
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: 'styles',
-          test: /\.(scss|sass|less|css)$/,
-          chunks: 'all',
-          minChunks: 1,
-          reuseExistingChunk: true,
-          enforce: true
-        }
-      }
-    }
   },
   plugins: [
     new MiniCssExtractPlugin({

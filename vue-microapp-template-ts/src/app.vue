@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <custom-comp />
+  <div>
+    Hello world!
   </div>
 </template>
 

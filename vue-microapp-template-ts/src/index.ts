@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import app from './app.vue';
 import { IMicroApp, IApplicationContext, IMicroRouter, IRoute } from '@xes/dh-boston-launcher';
 
 class UserRouter implements IMicroRouter {
@@ -19,6 +20,13 @@ export default class implements IMicroApp {
     this.main = true;
   }
   install(this: IMicroApp, applicationContext: IApplicationContext): Promise<void> {
-    throw new Error('Method not implemented.');
+    new Vue({
+      el: '#boston-main',
+      render(h) {
+        return h(app);
+      }
+    });
+
+    return Promise.resolve();
   }
 }
