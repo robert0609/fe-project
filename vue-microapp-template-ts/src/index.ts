@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { Route } from 'vue-router';
 import app from './app.vue';
-import { IMicroApp, IApplicationContext, IMicroRouter, IRoute } from '@xes/dh-boston-launcher';
+import { IMicroApp, IMicroRouter, IRoute } from '@xes/dh-boston-launcher';
 import home from './pages/home/index.vue';
 import list from './pages/list/index.vue';
 import detail from './pages/detail/index.vue';
@@ -105,14 +105,12 @@ class UserRouter implements IMicroRouter {
 
 export default class implements IMicroApp {
   router: IMicroRouter;
-  main: boolean;
   constructor() {
     this.router = new UserRouter();
-    this.main = true;
   }
-  install(this: IMicroApp, applicationContext: IApplicationContext): Promise<void> {
+  loaded(this: IMicroApp): Promise<void> {
     new Vue({
-      el: '${XXXX}',
+      el: this.mountElement as Element,
       router: (this.router as UserRouter).RawRouter,
       render(h) {
         return h(app);
