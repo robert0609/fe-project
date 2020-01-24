@@ -1,4 +1,7 @@
-import { applicationContext } from '@xes/dh-boston-launcher';
+import { applicationContext, IMicroApp } from '@xes/dh-boston-launcher';
 import CustomMicroApp from '../index';
 
-new CustomMicroApp().install(applicationContext);
+const app = (new CustomMicroApp() as IMicroApp);
+app.applicationContext = applicationContext;
+app.mountElement = (document.getElementById('boston-main') as Element);
+app.loaded();
