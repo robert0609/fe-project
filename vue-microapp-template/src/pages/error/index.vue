@@ -6,10 +6,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
+<script>
+export default {
   name: 'Error',
   data() {
     return {
@@ -22,7 +20,7 @@ export default Vue.extend({
     // let vm = error.vm;
     // let url = vm.$route.fullPath;
   }
-});
+};
 </script>
 
 <style>

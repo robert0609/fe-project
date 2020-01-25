@@ -7,7 +7,7 @@ var DeclarationBundlerPlugin = require('declaration-bundler-webpack4-plugin');
 var BostonPlugin = require('@xes/dh-boston-webpack-plugin');
 var externalDependencies = require('../dependenciesManifest.json');
 var manifest = {...externalDependencies};
-delete manifest['@xes/dh-boston-launcher'];
+// delete manifest['@xes/dh-boston-launcher'];
 
 function __path_src() {
 	return path.resolve(__dirname, '../src');

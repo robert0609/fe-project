@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import VueRouter, { Route } from 'vue-router';
+import VueRouter from 'vue-router';
 import app from './app.vue';
-import { IMicroApp, IMicroRouter, IRoute } from '@xes/dh-boston-launcher';
+import { IMicroApp, IMicroRouter, IRoute, BostonRoute } from '@xes/dh-boston-launcher';
 import home from './pages/home/index.vue';
 import list from './pages/list/index.vue';
 import detail from './pages/detail/index.vue';
@@ -36,28 +36,7 @@ const routes = [
   }
 ];
 
-class UserRoute implements IRoute {
-  schema: string;
-  domain: string;
-  path: string;
-  fullPath: string;
-  query: { [key: string]: string | undefined };
-  hash: string;
-
-  constructor(public fullUrl: string, vueRoute: Route) {
-    this.schema = location.protocol;
-    this.domain = location.host;
-    this.path = vueRoute.path;
-    this.fullPath = vueRoute.fullPath;
-    this.query = {};
-    for (const k in vueRoute.query) {
-      this.query[k] = vueRoute.query[k].toString();
-    }
-    this.hash = vueRoute.hash;
-  }
-}
-
-class UserRouter implements IMicroRouter {
+class MicroAppRouter implements IMicroRouter {
   private _router: VueRouter;
   get RawRouter() {
     return this._router;
@@ -89,29 +68,29 @@ class UserRouter implements IMicroRouter {
   }
 
   async push(url: string): Promise<IRoute> {
-    const r = await this._router.push({
+    await this._router.push({
       path: url
     });
-    return new UserRoute(url, r);
+    return new BostonRoute(url);
   }
 
   async replace(url: string): Promise<IRoute> {
-    const r = await this._router.replace({
+    await this._router.replace({
       path: url
     });
-    return new UserRoute(url, r);
+    return new BostonRoute(url);
   }
 }
 
 export default class implements IMicroApp {
   router: IMicroRouter;
   constructor() {
-    this.router = new UserRouter();
+    this.router = new MicroAppRouter();
   }
   loaded(this: IMicroApp): Promise<void> {
     new Vue({
       el: this.mountElement as Element,
-      router: (this.router as UserRouter).RawRouter,
+      router: (this.router as MicroAppRouter).RawRouter,
       render(h) {
         return h(app);
       }

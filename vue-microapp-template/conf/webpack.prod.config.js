@@ -7,7 +7,7 @@ var DeclarationBundlerPlugin = require('declaration-bundler-webpack4-plugin');
 var BostonPlugin = require('@xes/dh-boston-webpack-plugin');
 var externalDependencies = require('../dependenciesManifest.json');
 var manifest = {...externalDependencies};
-delete manifest['@xes/dh-boston-launcher'];
+// delete manifest['@xes/dh-boston-launcher'];
 
 function __path_src() {
 	return path.resolve(__dirname, '../src');
@@ -46,7 +46,7 @@ let config = {
   mode: 'production',
 	devtool: false,
   entry: {
-    index: path.resolve(__dirname, '../src/index.ts')
+    index: path.resolve(__dirname, '../src/index.js')
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -106,9 +106,6 @@ let config = {
       cssProcessorOptions: {
         safe: true
       }
-    }),
-    new DeclarationBundlerPlugin({
-      out: '../dist/${XXXX}.d.ts'
     }),
     new BostonPlugin({
       manifest: manifest

@@ -9,17 +9,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
+<script>
+export default {
   name: 'List',
   data() {
     return {
       message: 'List page!'
     };
   }
-});
+};
 </script>
 
 <style scoped>
