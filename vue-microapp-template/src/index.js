@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { BostonRoute } from '@xes/dh-boston-launcher';
+import { BostonRoute } from '@xes/dh-boston-type';
 import app from './app.vue';
 import home from './pages/home/index.vue';
 import list from './pages/list/index.vue';

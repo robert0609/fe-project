@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import app from './app.vue';
-import { IMicroApp, IMicroRouter, IRoute, BostonRoute } from '@xes/dh-boston-launcher';
+import { IMicroApp, IMicroRouter, IRoute, BostonRoute } from '@xes/dh-boston-type';
 import home from './pages/home/index.vue';
 import list from './pages/list/index.vue';
 import detail from './pages/detail/index.vue';

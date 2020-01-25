@@ -13,7 +13,7 @@
   "author": "${XXXX}",
   "dependencies": {
     "@babel/runtime-corejs3": "^7.5.5",
-    "@xes/dh-boston-launcher": "git+ssh://git@git.100tal.com:wangxiao_dahai_frontend/fe-dh-boston-launcher.git",
+    "@xes/dh-boston-type": "git+ssh://git@git.100tal.com:wangxiao_dahai_frontend/fe-dh-boston-type.git",
     "element-ui": "^2.13.0",
     "vue": "^2.6.10",
     "vue-class-component": "^7.1.0",
