@@ -50,10 +50,10 @@ let config = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '${XXXX}.min.js',
-    publicPath: '',
+    filename: '<%=appName%>.min.js',
+    publicPath: '<%=publicPath%>',
 		libraryTarget: 'commonjs2',
-    jsonpFunction: 'webpackJsonp_${XXXX}'
+    jsonpFunction: 'webpackJsonp_<%=appName%>'
   },
 	externals: [__externalConfig()],
   module: {
@@ -100,7 +100,7 @@ let config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '${XXXX}.min.css'
+      filename: '<%=appName%>.min.css'
     }),
     new OptimizeCSSAssetsPlugin({
       cssProcessorOptions: {
@@ -108,7 +108,7 @@ let config = {
       }
     }),
     new DeclarationBundlerPlugin({
-      out: '../dist/${XXXX}.d.ts'
+      out: '../dist/<%=appName%>.d.ts'
     }),
     new BostonPlugin({
       manifest: manifest

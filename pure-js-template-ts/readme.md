@@ -1,6 +1,6 @@
-# ${XXXX}
+# <%=name%>
 
-> ${XXXX}
+> <%=description%>
 
 ## Build Setup
 
@@ -18,7 +18,7 @@ npm run build
 ## Install
 
 ```javascript
-npm install --save ${XXXX}
+npm install --save <%=name%>
 ```
 
 ## Usage

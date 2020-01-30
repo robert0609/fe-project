@@ -1,8 +1,8 @@
 {
-  "name": "${XXXX}",
+  "name": "<%=name%>",
   "version": "0.1.1",
-  "description": "${XXXX}",
-  "main": "dist/${XXXX}.esm.js",
+  "description": "<%=description%>",
+  "main": "dist/<%=libraryName%>.esm.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp",
     "build": "cross-env NODE_ENV=production gulp",
@@ -10,7 +10,7 @@
     "karma": "cross-env BABEL_ENV=test karma start ./test/karma.conf.js",
     "prepublishOnly": "npm run build && npm run karma"
   },
-  "author": "${XXXX}",
+  "author": "<%=author%>",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-external-helpers": "^7.2.0",

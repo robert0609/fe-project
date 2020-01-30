@@ -1,14 +1,14 @@
 {
-  "name": "${XXXX}",
+  "name": "<%=name%>",
   "version": "1.0.0",
-  "description": "${XXXX}",
+  "description": "<%=description%>",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node build/dev.js",
     "build": "cross-env NODE_ENV=production node build/prod.js",
     "lint": "eslint --ext .ts,.js,.html,.vue --fix --format node_modules/eslint-friendly-formatter src test/unit",
     "karma": "cross-env BABEL_ENV=test karma start ./test/karma.conf.js"
   },
-  "author": "${XXXX}",
+  "author": "<%=author%>",
   "dependencies": {
     "@babel/runtime-corejs3": "^7.5.5",
     "vue": "^2.6.10",

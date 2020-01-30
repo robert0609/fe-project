@@ -1,6 +1,6 @@
-# ${XXXX}
+# <%=name%>
 
-> ${XXXX}
+> <%=description%>
 
 ## Build Setup
 

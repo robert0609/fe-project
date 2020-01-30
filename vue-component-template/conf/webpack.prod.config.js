@@ -38,9 +38,9 @@ let config = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '${XXXX}.min.js',
+    filename: '<%=libraryName%>.min.js',
     publicPath: '',
-		library: '${XXXX}',
+		library: '<%=libraryName%>',
 		libraryTarget: 'umd'
   },
 	externals: [{
@@ -113,7 +113,7 @@ let config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '${XXXX}.min.css',
+      filename: '<%=libraryName%>.min.css',
     }),
     new OptimizeCSSAssetsPlugin({
       cssProcessorOptions: {

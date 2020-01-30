@@ -46,7 +46,7 @@ class MicroAppRouter implements IMicroRouter {
     Vue.use(VueRouter);
     this._router = new VueRouter({
       mode: 'history',
-      base: '/microapp/${XXXX}/',
+      base: '/microapp/<%=appName%>/',
       routes,
       scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {

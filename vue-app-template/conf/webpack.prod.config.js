@@ -119,7 +119,7 @@ let config = {
       }
     }),
     new HtmlWebpackPlugin({
-      title: '${XXXX}',
+      title: '<%=htmlTitle%>',
       filename: path.resolve(__dirname, '../dist/index.html'),
       template: 'conf/index.html',
       favicon: path.resolve(__dirname, '../favicon.ico'),

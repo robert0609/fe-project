@@ -7,7 +7,7 @@ var externalDependencies = Object.keys(require('./package.json').dependencies);
 var config = {
   input: 'src/index.js',
   output: {
-    file: 'dist/${XXXX}.js',
+    file: 'dist/<%=libraryName%>.js',
     format: 'esm',
     sourcemap: true
   },
@@ -28,9 +28,9 @@ var config = {
 if (process.env.NODE_ENV === 'production') {
   config.output.sourcemap = false;
   if (config.output.format === 'esm') {
-    config.output.file = 'dist/${XXXX}.esm.js';
+    config.output.file = 'dist/<%=libraryName%>.esm.js';
   } else {
-    config.output.file = 'dist/${XXXX}.min.js';
+    config.output.file = 'dist/<%=libraryName%>.min.js';
     config.plugins.push(uglify());
   }
 }

@@ -1,16 +1,16 @@
 {
-  "name": "${XXXX}",
+  "name": "<%=name%>",
   "version": "0.1.1",
-  "description": "${XXXX}",
-  "main": "dist/${XXXX}.min.js",
-  "types": "dist/${XXXX}.d.ts",
+  "description": "<%=description%>",
+  "main": "dist/<%=appName%>.min.js",
+  "types": "dist/<%=appName%>.d.ts",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node build/dev.js",
     "build": "cross-env NODE_ENV=production node build/prod.js",
     "lint": "eslint --ext .ts,.js,.html,.vue --fix --format node_modules/eslint-friendly-formatter src test/unit",
     "karma": "cross-env BABEL_ENV=test karma start ./test/karma.conf.js"
   },
-  "author": "${XXXX}",
+  "author": "<%=author%>",
   "dependencies": {
     "@babel/runtime-corejs3": "^7.5.5",
     "@xes/dh-boston-type": "git+ssh://git@git.100tal.com:wangxiao_dahai_frontend/fe-dh-boston-type.git",

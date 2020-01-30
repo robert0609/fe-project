@@ -1,10 +1,10 @@
 {
-  "name": "${XXXX}",
+  "name": "<%=name%>",
   "version": "1.0.0",
-  "description": "${XXXX}",
+  "description": "<%=description%>",
   "main": "./dist/index.js",
   "bin": {
-    "${XXXX}": "./bin/start.js"
+    "<%=commandName%>": "./bin/start.js"
   },
   "scripts": {
     "prod": "gulp",
@@ -12,7 +12,7 @@
     "lint": "gulp lint",
     "build": "gulp"
   },
-  "author": "${XXXX}",
+  "author": "<%=author%>",
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.5.0",

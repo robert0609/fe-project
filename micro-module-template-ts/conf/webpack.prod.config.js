@@ -38,10 +38,10 @@ let config = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '${XXXX}.min.js',
-    publicPath: '${XXXX}',
+    filename: '<%=libraryName%>.min.js',
+    publicPath: '<%=publicPath%>',
 		libraryTarget: 'system',
-    jsonpFunction: 'webpackJsonp_${XXXX}'
+    jsonpFunction: 'webpackJsonp_<%=libraryName%>'
   },
   module: {
     rules: [
@@ -87,7 +87,7 @@ let config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '${XXXX}.min.css'
+      filename: '<%=libraryName%>.min.css'
     }),
     new OptimizeCSSAssetsPlugin({
       cssProcessorOptions: {
@@ -95,7 +95,7 @@ let config = {
       }
     }),
     new DeclarationBundlerPlugin({
-      out: '../dist/${XXXX}.d.ts'
+      out: '../dist/<%=libraryName%>.d.ts'
     })
   ]
 };

@@ -17,7 +17,7 @@ var config = {
       file: pkg.main,
       format: 'umd',
       sourcemap: true,
-      name: '${XXXX}'
+      name: '<%=libraryName%>'
     },{
       file: pkg.module,
       format: 'esm',

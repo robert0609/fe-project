@@ -11,7 +11,7 @@ import notFound from './pages/not_found/index.vue';
 Vue.use(VueRouter);
 const router = new VueRouter({
   mode: 'history',
-  base: '/microapp/${XXXX}/',
+  base: '/microapp/<%=appName%>/',
   routes: [
     {
       name: 'home',
