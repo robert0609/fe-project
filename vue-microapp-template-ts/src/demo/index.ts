@@ -1,4 +1,5 @@
-import { applicationContext, IMicroApp } from '@xes/dh-boston-launcher';
+import { IMicroApp } from '@xes/dh-boston-type';
+import { applicationContext } from '@xes/dh-boston-launcher';
 import CustomMicroApp from '../index';
 
 const app = (new CustomMicroApp() as IMicroApp);
