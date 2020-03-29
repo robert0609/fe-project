@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { BostonRoute } from '@xes/dh-boston-type';
 import app from './app.vue';
 import home from './pages/home/index.vue';
 import list from './pages/list/index.vue';
@@ -19,7 +18,7 @@ const router = new VueRouter({
       component: home
     }, {
       name: 'list',
-      path: '/order/list',
+      path: '/list',
       component: list
     }, {
       name: 'detail',
@@ -58,20 +57,7 @@ const router = new VueRouter({
 });
 
 export default {
-  router: {
-    async push(url) {
-      await router.push({
-        path: url
-      });
-      return new BostonRoute(url);
-    },
-    async replace(url) {
-      await router.replace({
-        path: url
-      });
-      return new BostonRoute(url);
-    }
-  },
+  microAppName: '<%=appName%>',
   async loaded() {
     new Vue({
       el: this.mountElement,
