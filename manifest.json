@@ -65,7 +65,7 @@
   "vue microapp template": {
     "templateFolder": "vue-microapp-template",
     "needInjectFiles": {
-      "package.json": [ "name", "description", "appName", "author" ],
+      "package.json": [ "name", "description", "author" ],
       "readme.md": [ "name", "description" ],
       "./conf/webpack.prod.config.js": [ "appName", "publicPath" ],
       "./src/index.js": [ "appName" ]
@@ -74,7 +74,7 @@
   "vue microapp template by ts": {
     "templateFolder": "vue-microapp-template-ts",
     "needInjectFiles": {
-      "package.json": [ "name", "description", "appName", "author" ],
+      "package.json": [ "name", "description", "author" ],
       "readme.md": [ "name", "description" ],
       "./conf/webpack.prod.config.js": [ "appName", "publicPath" ],
       "./src/index.ts": [ "appName" ]
