@@ -2,9 +2,9 @@
   "micro module template by ts": {
     "templateFolder": "micro-module-template-ts",
     "needInjectFiles": {
-      "package.json": [ "name", "description", "libraryName", "author" ],
+      "package.json": [ "name", "description", "author" ],
       "readme.md": [ "name", "description" ],
-      "./conf/webpack.prod.config.js": [ "libraryName", "publicPath" ]
+      "./conf/webpack.prod.config.js": [ "libraryName" ]
     }
   },
   "pure js template": {
