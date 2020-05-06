@@ -51,7 +51,7 @@ let config = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'index.js',
-    publicPath: '<%=publicPath%>',
+    publicPath: '',
 		libraryTarget: 'commonjs2',
     jsonpFunction: 'webpackJsonp_<%=appName%>'
   },
