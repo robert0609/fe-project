@@ -41,7 +41,7 @@
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^5.2.0",
     "css-loader": "^3.1.0",
-    "declaration-bundler-webpack4-plugin": "github:robert0609/declaration-bundler-webpack4-plugin",
+    "declaration-bundler-webpack4-plugin": "^1.0.6-beta.3",
     "eslint": "^5.16.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.2.1",
