@@ -4,7 +4,7 @@
   "description": "<%=description%>",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "microAppName": "<%=libraryName%>",
+  "microLibraryName": "<%=libraryName%>",
   "scripts": {
     "build": "node ./build/codeGen.js && cross-env NODE_ENV=production node build/prod.js",
     "deploy": "bpm publish"
@@ -29,7 +29,7 @@
     "@typescript-eslint/parser": "^2.5.0",
     "@vue/eslint-config-typescript": "^5.0.1",
     "@vue/test-utils": "^1.0.0-beta.29",
-    "@xes/dh-boston-package-manager": "github:robert0609/blue-package-manager",
+    "@xes/dh-boston-package-manager": "^0.1.5",
     "@xes/eslint-config-dahai": "^0.1.3",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
