@@ -4,6 +4,7 @@
   "description": "<%=description%>",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "microAppName": "<%=libraryName%>",
   "scripts": {
     "build": "node ./build/codeGen.js && cross-env NODE_ENV=production node build/prod.js",
     "deploy": "bpm publish"
