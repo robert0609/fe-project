@@ -116,7 +116,9 @@ let config = {
     new DeclarationBundlerPlugin({
       out: '../dist/index.d.ts'
     }),
-    new BostonWebpackPlugin()
+    new BostonWebpackPlugin({
+      library: true
+    })
   ]
 };
 
